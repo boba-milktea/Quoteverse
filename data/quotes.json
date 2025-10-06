@@ -10,5 +10,35 @@
     "text": "First, solve the problem. Then, write the code.",
     "author": "John Johnson",
     "tags": ["programming", "advice"]
+  },
+  {
+    "id": 3,
+    "text": "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
+    "author": "Martin Fowler",
+    "tags": ["programming", "quality", "clean code"]
+  },
+  {
+    "id": 4,
+    "text": "The best way to predict the future is to implement it.",
+    "author": "David Heinemeier Hansson",
+    "tags": ["innovation", "programming", "future"]
+  },
+  {
+    "id": 5,
+    "text": "Talk is cheap. Show me the code.",
+    "author": "Linus Torvalds",
+    "tags": ["programming", "action", "open source"]
+  },
+  {
+    "id": 6,
+    "text": "Measuring programming progress by lines of code is like measuring aircraft building progress by weight.",
+    "author": "Bill Gates",
+    "tags": ["programming", "metrics", "productivity"]
+  },
+  {
+    "id": 7,
+    "text": "Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.",
+    "author": "Brian Kernighan",
+    "tags": ["debugging", "programming", "advice"]
   }
 ]
