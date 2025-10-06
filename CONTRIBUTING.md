@@ -1,11 +1,18 @@
-# Contributing to QuoteVerse
+# 🌟 Contributing to QuoteVerse
 
-Thank you for your interest in contributing to QuoteVerse! This project is built to be beginner-friendly for Hacktoberfest 2025. Below are simple steps to get started and guidelines to follow.
+Thank you for your interest in contributing to **QuoteVerse**!  
+This project is built to be **beginner-friendly** and open for **Hacktoberfest 2025** participants.  
+Your contributions — big or small — are always welcome! 💬  
 
-## How to contribute
+---
 
-1. Fork the repository and clone your fork.
-2. Create a branch for your work: `git checkout -b feat/add-quote-yourname`.
+## 🚀 How to Contribute
+
+1. **Fork** this repository and **clone your fork**.
+2. Create a new branch for your work:
+   ```bash
+   git checkout -b feat/add-quote-yourname
+
 3. Make small, focused changes. Good contributions:
    - Add or improve a quote in `data/quotes.json`.
    - Fix typos in README or docs.
