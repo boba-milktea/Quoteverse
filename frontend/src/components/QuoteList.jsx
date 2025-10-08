@@ -2,19 +2,28 @@ import QuoteCard from "./QuoteCard";
 import { fetchQuotes } from "../api/quoteApi";
 import { useState, useEffect } from "react";
 import LoadingSpinner from "./LoadingSpinner";
+import Error from "./Error";
 
 const QuoteList = () => {
   const [quotes, setQuotes] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     const getQuotes = async () => {
-      const quoteData = await fetchQuotes();
-      setQuotes(quoteData?.data);
-      setLoading(false);
+      try {
+        const quoteData = await fetchQuotes();
+        setQuotes(quoteData?.data);
+      } catch (err) {
+        setError( err.message || "Failed to fetch the quotes");
+      } finally {
+        setLoading(false);
+      }
     };
     getQuotes();
   }, []);
+
+  if (error) return <Error errorMsg={error} />;
 
   return (
     <>
