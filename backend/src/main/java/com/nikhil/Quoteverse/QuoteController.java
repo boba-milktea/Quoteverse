@@ -1,6 +1,7 @@
 package com.nikhil.Quoteverse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -19,17 +20,8 @@ public class QuoteController {
     @GetMapping("/quotes")
     public ResponseEntity<?> getAllQuotes() {
         try {
-        
-            String basePath = System.getProperty("user.dir"); // should be ...\Quoteverse\Quoteverse\backend
-            Path filePath = Path.of(basePath)
-                .getParent()
-                // .resolve("QuoteVerse") 
-                .resolve("data")     // enter data folder
-                .resolve("quotes.json")
-                .normalize();
 
-            File file = filePath.toFile();
-
+            File file = new ClassPathResource("data/quotes.json").getFile();
 
             if (!file.exists()) {
                 return ResponseEntity.status(404)
