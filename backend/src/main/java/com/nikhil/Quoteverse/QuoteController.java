@@ -11,6 +11,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:5173")
 @RestController
 @RequestMapping("/api")
 public class QuoteController {
@@ -21,7 +22,8 @@ public class QuoteController {
         
             String basePath = System.getProperty("user.dir"); // should be ...\Quoteverse\Quoteverse\backend
             Path filePath = Path.of(basePath)
-                .resolve("QuoteVerse")  
+                .getParent()
+                // .resolve("QuoteVerse") 
                 .resolve("data")     // enter data folder
                 .resolve("quotes.json")
                 .normalize();
