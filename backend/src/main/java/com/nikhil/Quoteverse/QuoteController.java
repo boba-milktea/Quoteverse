@@ -42,4 +42,38 @@ public class QuoteController {
             return ResponseEntity.status(500).body(Map.of("error", e.getMessage()));
         }
     }
+
+
+    @GetMapping("/quotes/{id}")
+    public ResponseEntity<?> getQuoteById(@PathVariable int id) {
+        try {
+            String basePath = System.getProperty("user.dir");
+            Path filePath = Path.of(basePath)
+                .resolve("QuoteVerse")
+                .resolve("data")
+                .resolve("quotes.json")
+                .normalize();
+
+            File file = filePath.toFile();
+
+            if (!file.exists()) {
+                return ResponseEntity.status(404)
+                        .body(Map.of("error", "quotes.json not found at " + file.getAbsolutePath()));
+            }
+
+            ObjectMapper mapper = new ObjectMapper();
+            List<Map<String, Object>> quotes = mapper.readValue(file, new TypeReference<List<Map<String, Object>>>() {});
+
+            for (Map<String, Object> quote : quotes) {
+                if (quote.get("id") instanceof Number && ((Number) quote.get("id")).intValue() == id) {
+                    return ResponseEntity.ok(quote);
+                }
+            }
+
+            return ResponseEntity.status(404).body(Map.of("message", "Quote not found"));
+
+        } catch (IOException e) {
+            return ResponseEntity.status(500).body(Map.of("error", e.getMessage()));
+        }
+    }
 }
