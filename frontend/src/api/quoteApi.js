@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const fetchQuotes = async () => {
-  // const url = "https://api.quotable.io/quotes?tags=nosiejflse";
   const url = "http://localhost:8080/api/quotes";
   try {
     const res = await axios.get(url);
@@ -12,5 +11,6 @@ export const fetchQuotes = async () => {
     }
   } catch (err) {
     console.error(err);
+    throw err;
   }
 };
